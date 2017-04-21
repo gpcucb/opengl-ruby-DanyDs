@@ -28,12 +28,22 @@ def display
     glMatrixMode(GL_MODELVIEW)
     
     glBegin(GL_TRIANGLES)
+        glColor3f(0.4,0.3,0.4)        
+        glVertex3f(0.0,0.8,0.0)        
         glColor3f(1.0,0.8,0.5)
-        glVertex3f(0.0,0.8,0.0)
-        glColor3f(0.5,0.1,0.2)
         glVertex3f(-0.6,-0.2,0.0)
-        glColor3f(0.4,0.3,0.4)
+        glColor3f(0.5,0.1,0.2)
         glVertex3f(0.6,-0.2,0.0)
+    glEnd
+    glBegin(GL_QUADS)
+        glColor3f(1.0,0.8,0.5)
+        glVertex3f(-0.6,-0.10,0.0)
+        glColor3f(0.4,0.3,0.4)
+        glVertex3f(0.6,-0.10,0.0)        
+        glColor3f(0.5,0.1,0.2)
+        glVertex3f(0.6,-1.0,0.0)
+        glColor3f(1.0,0.8,0.5)        
+        glVertex3f(-0.6,-1.0,0.0)
     glEnd
     glFlush #forzamos el dibujado
     glutPostRedisplay #parar la ejecucion y no se ejecute infinitamente
