@@ -38,16 +38,18 @@ def display
     #mínima es z=1.0, y la distancia máxima es z=100.0
     glMatrixMode(GL_MODELVIEW)
     glTranslatef(0.0,0.0,-16.0)    
-    #Dibujamos el cuerpo
     
+    #Dibujamos el cuerpo    
     glTranslatef(0,BODY_HEIGHT/2,0)
     glPushMatrix
     glScalef(BODY_WIDTH,BODY_HEIGHT,BODY_LENGTH)
     glColor3f(0.4,0.3,0.8)
     glutSolidCube(1)
     glPopMatrix    
+    
     # Dibujamos el brazo derecho
     glPushMatrix
+    glColor3f(0.4,0.3,0.4)
     glTranslatef(-(BODY_WIDTH)/2,(BODY_HEIGHT-ARM_HEIGHT)/2,0)
     glTranslatef(0,ARM_HEIGHT/2,0)
     glRotatef(0,0,0,1)
@@ -57,7 +59,7 @@ def display
     glutSolidCube(1)
     glPopMatrix
     
-    # ya tenemos el brazo... la mano
+    # Dibujamos la mano derecha
     glTranslatef(0,-(ARM_HEIGHT+ARM_WIDTH)/2,0)
     glColor3f(1,0.6,0.6)
     glScalef(ARM_WIDTH,ARM_WIDTH,ARM_LENGTH)
@@ -65,7 +67,7 @@ def display
     glPopMatrix
     
     # Dibujamos el brazo izquierdo
-    glColor3f(0.4,0.3,0.8)
+    glColor3f(0.4,0.3,0.4)
     glPushMatrix
     glTranslatef((BODY_WIDTH)/2,(BODY_HEIGHT-ARM_HEIGHT)/2,0)
     glTranslatef(0,ARM_HEIGHT/2,0)
@@ -75,15 +77,15 @@ def display
     glScalef(ARM_WIDTH,ARM_HEIGHT,ARM_LENGTH)
     glutSolidCube(1)
     glPopMatrix
-    # ya tenemos el brazo... la mano
     
+    # Dibujamos la mano izquierda    
     glTranslatef(0,-(ARM_HEIGHT+ARM_WIDTH)/2,0)
     glColor3f(1,0.6,0.6)
     glScalef(ARM_WIDTH,ARM_WIDTH,ARM_LENGTH)
     glutSolidCube(1)
     glPopMatrix
     
-    #Dibujamos la pierna derecha
+    # Dibujamos la pierna derecha
     glColor3f(0.0,0.3,0.8)
     glPushMatrix
     glRotatef(-15,0,0,1)
@@ -92,13 +94,15 @@ def display
     glScalef(LEG_WIDTH,LEG_HEIGHT,LEG_LENGTH)
     glutSolidCube(1)
     glPopMatrix
-    # ahora el píe
+    
+    # Dibujamos píe derecho
     glTranslatef(0,-(LEG_HEIGHT+LEG_WIDTH)/2,LEG_LENGTH)
     glColor3f(0.3,0.4,0.4)
     glScalef(LEG_WIDTH,LEG_WIDTH,LEG_LENGTH*2)
     glutSolidCube(1)
     glPopMatrix
-    #Dibujamos la pierna izquierda
+    
+    # Dibujamos la pierna izquierda
     glColor3f(0.0,0.3,0.8)
     glPushMatrix
     glRotatef(15,0,0,1)
@@ -108,23 +112,24 @@ def display
     glutSolidCube(1)
     glPopMatrix
     
-    # ahora el píe
+    # Dibujamos píe izquierdo
     glTranslatef(0,-(LEG_HEIGHT+LEG_WIDTH)/2,LEG_LENGTH)
     glColor3f(0.3,0.4,0.4)
     glScalef(LEG_WIDTH,LEG_WIDTH,LEG_LENGTH*2)
     glutSolidCube(1)
     glPopMatrix
     
-    #Dibujamos la cabeza
+    # Dibujamos la cabeza
     glColor3f(1,0.6,0.6)
     glPushMatrix
-    glTranslatef(0,BODY_HEIGHT/2 + HEAD_RADIUS*3/4,0)
+    glTranslatef(0,BODY_HEIGHT/2 + HEAD_RADIUS*3/4,0.5)
     glutSolidSphere(HEAD_RADIUS,10,10)
     glPopMatrix
     glFlush
     sleep 20
     exit 0
 end
+
 glutInit
 glutInitDisplayMode(GLUT_SINGLE | GLUT_RGBA | GLUT_DEPTH)    
 glutInitWindowSize(500,500)
