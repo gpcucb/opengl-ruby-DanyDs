@@ -124,6 +124,7 @@ def display
     glPushMatrix
     glTranslatef(0,BODY_HEIGHT/2 + HEAD_RADIUS*3/4,0.5)
     glutSolidSphere(HEAD_RADIUS,10,10)
+    
     glPopMatrix
     glFlush
     sleep 20
@@ -134,6 +135,6 @@ glutInit
 glutInitDisplayMode(GLUT_SINGLE | GLUT_RGBA | GLUT_DEPTH)    
 glutInitWindowSize(500,500)
 glutInitWindowPosition(20,20)
-glutCreateWindow("Simleguy, en Ruby")
+glutCreateWindow("Simpleguy, en Ruby")
 glutDisplayFunc :display
 glutMainLoop
